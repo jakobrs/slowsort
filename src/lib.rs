@@ -1,11 +1,6 @@
 pub fn slowsort<T: Ord>(data: &mut [T]) {
-    let len = data.len();
+    let m @ 1.. = data.len() / 2 else { return };
 
-    if len <= 1 {
-        return;
-    }
-
-    let m = len / 2;
     slowsort(&mut data[..m]);
     slowsort(&mut data[m..]);
 
